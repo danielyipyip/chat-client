@@ -1,8 +1,14 @@
 import React from 'react'
+import Messages from './Messages'
+import InputMessage from './InputMessage'
 
 function ChatArea() {
   return (
-    <div>ChatArea</div>
+    <div>
+        ChatArea
+        <Messages />
+        <InputMessage />
+    </div>
   )
 }
 
