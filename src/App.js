@@ -2,7 +2,8 @@ import React, {useEffect, useRef, useState} from "react";
 import ChatArea from "./components/ChatArea";
 
 import io from 'socket.io-client';
-
+import {useSelector, useDispatch} from 'react-redux'
+import {LoadMsg} from './components/redux/index'
 
 function App() {
   let socket;
@@ -22,6 +23,13 @@ function App() {
       setMessages(prev => [...prev, msg])
     })
   },[socket])
+
+  const otherMsg = useSelector(state => state.messages.messages)
+  const dispatch = useDispatch();
+  useEffect(()=>{
+    dispatch(LoadMsg())
+    console.log(otherMsg)
+  }, [])
 
 
   const handleSubmit = (evt) =>{
@@ -44,6 +52,7 @@ function App() {
           {messages.map(msg=>{
             return <p>{msg}</p>
           })}
+          other msg: {otherMsg}
         </div>
     </div>
   );
