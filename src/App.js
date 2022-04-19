@@ -24,14 +24,6 @@ function App() {
     })
   },[socket])
 
-  const otherMsg = useSelector(state => state.messages.messages)
-  const dispatch = useDispatch();
-  useEffect(()=>{
-    dispatch(LoadMsg())
-    console.log(otherMsg)
-  }, [])
-
-
   const handleSubmit = (evt) =>{
     evt.preventDefault();
     // console.log(evt.target[0].value);
@@ -52,7 +44,6 @@ function App() {
           {messages.map(msg=>{
             return <p>{msg}</p>
           })}
-          other msg: {otherMsg}
         </div>
     </div>
   );
