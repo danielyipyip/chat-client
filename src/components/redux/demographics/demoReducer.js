@@ -1,8 +1,9 @@
-import { SET_USER, SET_ROOM } from "./demoType";
+import { SET_USER, SET_ROOM, SET_SOCKET } from "./demoType";
 
 const initialState = {
     user: '', 
-    room: ''
+    room: '', 
+    socket: {}, 
 }
 
 const reducer = (state=initialState, action) => {
@@ -11,6 +12,8 @@ const reducer = (state=initialState, action) => {
             return {...state, user: action.payload}
         case SET_ROOM: 
             return {...state, room: action.payload}
+        case SET_SOCKET:
+            return {...state, socket: action.payload}
         default:
             return state
     }
