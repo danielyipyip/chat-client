@@ -3,7 +3,7 @@ import ChatArea from "./components/ChatArea";
 
 import io from 'socket.io-client';
 import {useSelector, useDispatch} from 'react-redux'
-import {LoadMsg, setRoom, setUser} from './components/redux/index'
+import {LoadMsg, setRoom, setsocket, setUser} from './components/redux/index'
 
 function App() {
   let socket;
